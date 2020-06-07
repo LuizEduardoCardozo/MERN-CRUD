@@ -1,0 +1,30 @@
+{
+  "name": "MERN-CRUD",
+  "version": "1.0.0",
+  "description": "A crud made with Mongo, Express, React and Node",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizEduardoCardozo/MERN-CRUD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuizEduardoCardozo/MERN-CRUD/issues"
+  },
+  "homepage": "https://github.com/LuizEduardoCardozo/MERN-CRUD#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
