@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const path = require('path');
 
 const mailer = require('../modules/mailer');
 
@@ -82,7 +83,17 @@ router.post('/forgot', async (req, res) => {
             {new: true}
         );
 
-        return res.json({forgottenToken, now});
+        await mailer.sendMail({
+            to: email,
+            from:'admin@dosistema.com',
+            template: './auth/forgot_email',
+            context: { token: forgottenToken },
+        }, (err) => {
+            if(err) console.log(err);
+            return res.status(300);
+        });
+
+        // return res.json({forgottenToken, now});
 
 
     }catch (err) {
