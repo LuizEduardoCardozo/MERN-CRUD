@@ -93,6 +93,7 @@ router.post('/forgot', async (req, res) => {
             return res.status(300);
         });
 
+        // For debugging purposes  
         // return res.json({forgottenToken, now});
 
 
@@ -102,5 +103,23 @@ router.post('/forgot', async (req, res) => {
 
 });
 
-module.exports = app => app.use('/auth', router);
+router.post('/reset', async (req,res) => {
 
+    const {email, token, npassword} = req.body
+
+    const user = await User.findOne({email}).select(['+passwordResetToken','+passwordResetExpires']);
+
+    if(!user) res.status(400).json({err: "User not found!"});
+    if(user.passwordResetExpires > Date.now) return res.status(401).json({err: "Token expired!"});
+    if(!bcrypt.compare(token,user.passwordResetToken)) res.status(400).json({err: "The token is wrong"});
+
+    user.password = npassword;
+
+    await user.save();
+
+    return res.status(300).json({msg: "Sucesses"});
+
+
+});
+
+module.exports = app => app.use('/auth', router);
