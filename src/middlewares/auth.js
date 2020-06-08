@@ -9,7 +9,6 @@ module.exports = (req,res,next) => {
 
     // Token jwt => Barrer ${Hash}
 
-
     const parts = authHeader.split(" ");
     
     if(parts.length != 2)

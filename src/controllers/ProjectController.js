@@ -6,7 +6,11 @@ const AuthMiddleWare = require('../middlewares/auth');
 router.use(AuthMiddleWare);
 
 router.get('/', (req, res) => {
-    res.send({ok:"True"})
+
+    const { userId } = req;
+    
+    res.send({ok:"True", userId})
+
 })
 
 module.exports = app => app.use("/projects",router);

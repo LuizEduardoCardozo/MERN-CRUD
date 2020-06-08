@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+
+const mailer = require('../modules/mailer');
 
 const authConfig = require('../config/auth');
 
@@ -55,6 +58,36 @@ router.post('/authenticate', async (req, res) => {
     user.password = undefined;
 
     return res.json( { user, token: await generateToken({ id: user.id }) } );
+
+});
+
+router.post('/forgot', async (req, res) => {
+    try{
+        const { email } = req.body;
+        const user = await User.findOne({ email });
+
+        
+        if(!user) return res.status(400).json({err: "User not found!"});
+        
+        const forgottenToken = crypto.randomBytes(20).toString('hex');
+        
+        const now = new Date;
+        now.setHours(now.getHours() + 1);
+        
+        await User.findByIdAndUpdate(user.id, 
+            {
+                passwordResetToken: forgottenToken,
+                passwordResetExpires: now,
+            },
+            {new: true}
+        );
+
+        return res.json({forgottenToken, now});
+
+
+    }catch (err) {
+        return res.status(400).json({err: "An error has found! try again later, please"});
+    }
 
 });
 
