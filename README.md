@@ -56,11 +56,12 @@ GET - /projects -> Return all projects registered. It's just a wadding to test p
 
 # What technologies are you using?
 
-1. NodeJS
-2. Express
-3. Mongoose
-4. JsonWebToken
-5. BCrypyJs
-6. NodeMailer
+1. [NodeJS](https://nodejs.org)
+2. [Express](https://expressjs.com)
+3. [Mongoose](https://mongoosejs.com)
+4. [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
+5. [BCrypyJs](https://www.npmjs.com/package/bcryptjs)
+6. [NodeMailer](https://nodemailer.com/about/)
+7- [Axios](https://www.npmjs.com/package/axios)
 
 ---
