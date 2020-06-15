@@ -62,6 +62,6 @@ GET - /projects -> Return all projects registered. It's just a wadding to test p
 4. [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
 5. [BCrypyJs](https://www.npmjs.com/package/bcryptjs)
 6. [NodeMailer](https://nodemailer.com/about/)
-7- [Axios](https://www.npmjs.com/package/axios)
+7. [Axios](https://www.npmjs.com/package/axios)
 
 ---
