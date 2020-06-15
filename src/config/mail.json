@@ -1,8 +1,8 @@
 {
-    "host": "smtp.mailtrap.io",
-    "post": "2525",
+    "host": "SMTP_ADDRESS",
+    "post": "SMTP_PORT",
     "auth": {
-        "user":"ddb9f6fded8672",
-        "pass":"40901e9ef3dc40"
+        "user":"USER_NAME",
+        "pass":"USER_PASS"
     }
 }
