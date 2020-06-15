@@ -1,5 +1,9 @@
 # MERN-CRUD
 
+<p align="center">
+  <img  src="crud_image.jpg">
+</p>
+
 That's an advanced application, with several features that aren't common to see in other applications, like jwt authentication and password reset by an email confirmation.
 
 ---
